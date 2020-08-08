@@ -3,6 +3,8 @@
  */
 package demo.other;
 
+import java.util.regex.Pattern;
+
 /**
  * @author pmnjeru
  *
@@ -13,8 +15,18 @@ public class IPAddressValidator {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		String[] validIPS = {"255.255.255.0", "255.255.255.255", "127.0.0.1", "0.0.0.0"};
+		String[] invalidIPS = {"127.0.0.a", "127.0.0.256", "a", "1234.10.4.0", "127.0.0.1.0"};
 		
-		isIPValid("");
+		for(String valid : validIPS) {
+			System.out.println("IP " + valid + " valid? " + isIPValid(valid));
+		}
+		
+		for(String invalid : invalidIPS) {
+			System.err.println("IP " + invalid + " valid? " + isIPValid(invalid));
+		}
+		
+		
 
 	}
 	
@@ -58,15 +70,38 @@ public class IPAddressValidator {
 	 * 
 	 * Anyway, let continue with our task.
 	 * 
-	 * Implement the below method as described. Don't use regex
+	 * Implement the below method as described.
 	 * 
 	 * 
 	 * @param ipv4 an IP address to be validated. Examples of valid addresses are 255.255.255.0  and 192.168.100.14 
 	 * @return return whether the provided IP V4 is valid or not 
 	 */
 	public static boolean isIPValid(String ipv4) {
-		System.out.println(Integer.toBinaryString(255)); //11111111
-		return false;
+		boolean valid = false;
+		if(ipv4.isEmpty()) {
+			return false;
+		}else if(!ipv4.contains(".")) {
+			return false;
+		}else {
+			String[] parts = ipv4.split("\\.");
+			if(parts.length != 4) {
+				return false;
+			}else {
+				
+				for (String part : parts) {
+					if(!Pattern.matches("[0-9]+", part)) {
+						return false;
+					}else {
+						if(Integer.valueOf(part) > 255) {
+							return false;
+						}else {
+							valid = true;
+						}
+					}
+				}//end of loop
+			}
+		}
+		return valid;
 	}
 
 }
