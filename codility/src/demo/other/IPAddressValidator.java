@@ -52,23 +52,24 @@ public class IPAddressValidator {
 	 * Note:
 	 * Due to reasons that will become apparent in the next paragraph, IP V4 is being replace with IPv6 which uses 128 binary bit.
 	 * 
-	 * At the dawn of IPv4 addressing, the Internet wasn't the as large as it is today, we had just few computers connected. 
+	 * At the dawn of IPv4 addressing, the Internet wasn't as large as it is today, we had just few devices/computers connected. 
 	 * Most networks were private and closed off from other networks around the world. 
 	 * 
-	 * When the Internet exploded in the late 1990s, having only a 32 bits number as a unique identifier caused concerns 
+	 * When the Internet exploded in mid-late 1990s, having only a 32 bits number as a unique identifier caused concerns 
 	 * that we'd run out of IP addresses before long. 
 	 * 
 	 * Under IPv4, there are 232 possible combinations! "I hope you understand how..."
 	 * 
 	 * 2^32 "2 to the power of 32" is 4,294,967,296 addresses. This offers just under 4.3 billion unique addresses. 
+	 * Pretty few devices especially in this age of NBIoT "Narrow Band Internet of Things".
 	 *  
 	 * IPv6 which is a 128 binary bit number raised that to a stress-relieving 2,128 possible addresses. "2^128 IP addresses".
 	 * 
 	 * This would translate to  340,282,366,920,938,463,463,374,607,431,768,211,456 IP V6 addresses. 
 	 * 
-	 * A good history there!
+	 * A huge good there!
 	 * 
-	 * Anyway, let continue with our task.
+	 * Anyway, that's a belief history of IP addresses and no let's continue with our task.
 	 * 
 	 * Implement the below method as described.
 	 * 
