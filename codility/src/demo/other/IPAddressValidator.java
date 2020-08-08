@@ -67,7 +67,7 @@ public class IPAddressValidator {
 	 * 
 	 * This would translate to  340,282,366,920,938,463,463,374,607,431,768,211,456 IP V6 addresses. 
 	 * 
-	 * A huge good there!
+	 * A huge number there!
 	 * 
 	 * Anyway, that's a belief history of IP addresses and no let's continue with our task.
 	 * 
