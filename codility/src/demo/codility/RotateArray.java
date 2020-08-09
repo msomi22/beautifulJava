@@ -38,7 +38,7 @@ public class RotateArray {
 	 */
 	public static void main(String[] args) {
 		
-		int[] arr = {10,20,30,40,50,60};
+		int[] arr = {};
 		int count = 3;
 		rotate(arr, count);
 		printArr(arr);
@@ -50,7 +50,7 @@ public class RotateArray {
 	 * @return
 	 */
 	private static int[] rotate(int[] arr, int num) {
-		if(num == 0) {
+		if(num == 0 || arr.length == 0) {
 			return arr;
 		}
 		int len = arr.length;

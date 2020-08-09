@@ -42,13 +42,29 @@ public class BinaryGap {
 		int ouput = solution(num);
 		System.out.println("max = " + ouput);
 	}
+	
+	public static int solution(int n) {
+		int result = 0;
+		int temp = 0;
+		String intbinary = Integer.toBinaryString(n);
+		for(int i = 0; i < intbinary.length(); i++) {
+			if(intbinary.charAt(i) == '0') {
+				result++;
+				continue;
+			}
+			temp = (result > temp) ? result : temp;
+			result = 0;
+			
+		}
+		return temp;
+	}
 
 	/**
 	 * 
 	 * @param num
 	 * @return
 	 */
-	private static int solution(int num) {
+	private static int solutionBad(int num) {
 		int max = 0;
 		if (num <= Integer.MAX_VALUE) {
 			String bin = Integer.toBinaryString(num);
