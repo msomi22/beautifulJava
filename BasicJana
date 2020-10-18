@@ -139,13 +139,39 @@ public class DemoPeter {
 	     */
 	    System.out.println();
 	    /**
-	     * 10110
+	     * 10110 left shift 10110.
+	     * 10110.00 = 1011000
 	     */
-	    System.out.println(no2 <<2);
+	    System.out.println(no2 + " " + (no2 <<2) + " " +  Integer.toBinaryString(no2 <<2));
 	    /**
-	     * 10110
+	     * 10110 right shift 10110.
+	     * 101.10 = 101
 	     */
+	    System.out.println(no2 + " " + (no2 >>2) + " " + Integer.toBinaryString(no2 >>2)); 
+	    
+	    System.out.println();
+	    System.out.println(8 <<2);
+	    System.out.println(8 >>2);
+	    
+	    System.out.println();
+	    System.out.println(8 <<1);
+	    System.out.println(8 >>1);
+	   
+	    /**
+	     * 101.10 
+	     */
+	    System.out.println();
+	    System.out.println(no2 >>>2);
 	    System.out.println(no2 >>2);
+	    
+	    System.out.println();
+	    String myNo = "1000";
+	    for(int i=0;i<10;i++) {
+	    	System.out.print("item: " + i + "-"); 
+	    	 System.out.println(Integer.valueOf(myNo) <<i); 
+	    	 System.out.print(" #"); 
+	    }
+	    
 	    
 	   
 
