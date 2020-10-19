@@ -4,7 +4,7 @@
 package demo;
 
 /**
- *
+ * @author 
  *
  */
 public class DemoPeter {
@@ -189,8 +189,77 @@ public class DemoPeter {
 		default:
 			break;
 		}
+		
+		/**
+		 *    for(initialization; condition ; increment/decrement)
+				{
+				   statement(s);
+				}
+				
+				// infinite loop
+				for ( ; ; ) {
+				    // statement(s)
+				}
+				
+				while(condition)
+				{
+				   statement(s);
+				}
+				
+				
+				do
+				{
+				   statement(s);
+				} while(condition);
+		 */
+		
+		/**
+		 * in while loop, condition is evaluated before the execution of loop’s body 
+		 * but in do-while loop condition is evaluated after the execution of loop’s body.
+		 */
+		
+		
+		System.out.println();
+		System.out.println("***1");
+		int x = 0;
+		do
+		{
+			System.out.println(x);
+			x++;
+			
+		}while(x<10);
+		
+		System.out.println();
+		System.out.println("***2");
+		
+		int y = 0;
+		while(y<10) {
+			System.out.println(y);
+			y++;
+		}
+		
+		
+		/**
+		 * Object: is a bundle of data and its behaviour(often known as methods).
+		 * Objects have two characteristics: They have states and behaviors.
+		 * 
+		 *  Examples of states and behaviors
+			Example 1:
+			Object: House
+			State: Address, Color, Area
+			Behavior: Open door, close door
+		 */
+		
 	}
+	
+	
 
+	
+	/**
+	 * 
+	 * @param bin
+	 * @return
+	 */
 	static int toDec(String bin) {
 		return Integer.parseInt(bin, 2);
 	}
