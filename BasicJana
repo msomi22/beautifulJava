@@ -61,11 +61,20 @@ public class DemoPeter {
 		 * multiplication Note: Modulo operator returns remainder, for example 10 % 5
 		 * would return 0
 		 * 
-		 * 2) Assignment Operators 3) Auto-increment and Auto-decrement Operators 4)
-		 * Logical Operators 5) Comparison (relational) operators 6) Bitwise Operators:
-		 * There are six bitwise Operators: & bitwise and | bitwise or ^ bitwise XOR ~
-		 * bitwise compliment << left shift >> right shift >>> zero fill right shift 7)
-		 * Ternary Operator
+		 * 2) Assignment Operators 
+		 * 3) Auto-increment and Auto-decrement Operators  
+		 * 4) Logical Operators 
+		 * 5) Comparison (relational) operators 
+		 * 6) Bitwise Operators:  
+		 * There are six bitwise Operators:   
+		 * & is bitwise and   
+		 * | is bitwise or 
+		 * ^ is bitwise XOR 
+		 * ~ is bitwise compliment 
+		 * << is left shift 
+		 * >> is right shift   
+		 * >>> is zero fill right shift   
+		 * 7) Ternary Operator  
 		 */
 
 		int num1 = 100;
