@@ -78,31 +78,30 @@ public class IPAddressValidator {
 	 * @return return whether the provided IP V4 is valid or not 
 	 */
 	public static boolean isIPValid(String ipv4) {
-		boolean valid = false;
-		if(ipv4.isEmpty()) {
+		if (ipv4.isEmpty()) {
 			return false;
-		}else if(!ipv4.contains(".")) {
-			return false;
-		}else {
-			String[] parts = ipv4.split("\\.");
-			if(parts.length != 4) {
-				return false;
-			}else {
-				
-				for (String part : parts) {
-					if(!Pattern.matches("[0-9]+", part)) {
-						return false;
-					}else {
-						if(Integer.valueOf(part) > 255) {
-							return false;
-						}else {
-							valid = true;
-						}
-					}
-				}//end of loop
-			}
 		}
-		return valid;
+		if (!ipv4.contains(".")) {
+			return false;
+		}
+
+		String[] parts = ipv4.split("\\.");
+		if (parts.length != 4) {
+			return false;
+		}
+
+		for (String part : parts) {
+			if (!Pattern.matches("[0-9]+", part)) {
+				return false;
+			}
+			int ip = Integer.valueOf(part);
+			if (ip > 255) {
+				return false;
+			} 
+
+		} // end of loop
+
+		return true;
 	}
 
 }
