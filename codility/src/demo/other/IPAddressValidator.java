@@ -5,7 +5,7 @@ package demo.other;
 
 import java.util.regex.Pattern;
 
-/**
+/** NOTE: We can use Regex to achieve the below in one line of code
  * @author pmnjeru
  *
  */
