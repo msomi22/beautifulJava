@@ -1,0 +1,119 @@
+package demo.app;
+
+import java.util.*;
+import java.util.function.BinaryOperator;
+import java.util.function.Function;
+
+public class DemoStream {
+
+    public static void main(String[] args) {
+
+        Demo dd = new Demo();
+        dd.test();
+
+        List<Integer> list = Arrays.asList(100,20,30,400,56,6);
+
+        Iterator<Integer> it1 = list.iterator();
+
+        while(it1.hasNext()){
+            System.out.println(">>>>>>>>"+it1.next());
+        }
+
+        Iterator<Integer> it2 = list.iterator();
+        it2.forEachRemaining((p) -> {
+            System.out.println(">>>>>>>>:::"+p);
+        });
+
+        Spliterator<Integer> sp1 = list.spliterator();
+        Spliterator<Integer> sp2 = sp1.trySplit();
+
+        sp1.forEachRemaining((p) -> {
+            System.out.println("sp1:::"+p);
+        });
+
+        sp2.forEachRemaining((p) -> {
+            System.out.println("sp2:::"+p);
+        });
+
+
+        System.out.println("***************************************");
+
+        //Consumer<Integer> consumer = i -> System.out.println(i);
+        //list.forEach(consumer);
+        //list.forEach(i -> System.out.println(i));
+
+        int result = 0;
+        for(int i : list){
+            result = result + (i*2);//2+4+6+8+10+12=42
+        }
+        System.out.println("result = " + result);
+
+        int result2 = 0;
+
+        //Function<Integer,Integer> multiply = a -> a * 2;
+        Function<Integer,Integer> multiply = new Function<Integer, Integer>() {
+            @Override
+            public Integer apply(Integer a) {
+                return a * 2;
+            }
+        };
+        //BinaryOperator<Integer> add = (a, b) -> a+b;
+        BinaryOperator<Integer> add = new BinaryOperator<Integer>() {
+            @Override
+            public Integer apply(Integer a, Integer b) {
+                return a+b;
+            }
+        };
+
+        result2 = list.stream().map(multiply).reduce(0, add);
+
+        result2 = list.stream().map(i -> i*2).reduce(0, (a,b) -> a+b);
+
+        result2 = list.stream().map(i -> i*2).reduce(0, Integer::sum);
+
+        long max = 0;
+        max = list.stream().reduce(0, Integer::max);
+        int min = list.stream().reduce(0, Integer::min);
+        System.out.println("max1111 = " + max);
+
+        int sumOfDivBy5 = list.stream().filter(a -> a % 5 == 0).reduce(0, Integer::sum);
+        System.out.println("sumOfDivBy5 = " + sumOfDivBy5);
+        sumOfDivBy5 = list.stream().filter(DemoStream::isDivisibleBy5).reduce(0, Integer::sum);
+        System.out.println("sumOfDivBy5 = " + sumOfDivBy5);
+
+
+        long count = list.stream().count();
+        max = list.stream().mapToInt(a -> a).max().orElse(0);
+        long max2 = list.stream().max(Comparator.comparing(a -> a)).orElse(0);
+        System.out.println("count = " + count);
+        System.out.println("max = " + max + " max2 = " + max2);
+
+        System.out.println("result2 = " + result2);
+
+    }
+
+    public static boolean isDivisibleBy5(int a){
+        return a%5==0;
+    }
+
+    static class Demo extends Test1 implements Test{
+
+        public void test(){
+            Demo d = new Demo();
+            d.show();
+        }
+    }
+
+    interface Test{
+       default void show(){
+            System.out.println("in interface test 1");
+        }
+
+    }
+
+    static class Test1{
+        public void show(){
+            System.out.println("in class test 2");
+        }
+    }
+}
